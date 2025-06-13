@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 
 const navLinks = [
-  { name: 'Dashboard', path: '/dashboard' },
+  { name: 'Home', path: '/dashboard/home' },
   { name: 'Products', path: '/dashboard/products' },
   { name: 'User', path: '/dashboard/user' },
 ];
