@@ -1,11 +1,11 @@
-import { fetchProductList } from "@/app/lib/data";
+import ProductList from "@/app/ui/products/product-list";
 
-export default async function Products() {
-    const data = await fetchProductList();
-    console.log(data);
-
+export default function Products() {
+    
     return (
-        <div>Product List</div>
+        <div>
+            <ProductList />
+        </div>
     )
 }
 
