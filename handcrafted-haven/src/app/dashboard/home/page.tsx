@@ -5,8 +5,6 @@ export default function Home() {
     return (
         <div>
             <img src="/hero-image.avif" alt="Hero" className="w-full h-auto" />
-            <TrendingProducts />
-            <PopularProducts />
         </div>
     )
 }

@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 const navLinks = [
   { name: 'Home', path: '/dashboard/home' },
   { name: 'Products', path: '/dashboard/products' },
-  { name: 'User', path: '/dashboard/user' },
+  { name: 'Account', path: '/dashboard/account' },
 ];
 
 export default function NavLinks() {
