@@ -1,4 +1,5 @@
 import Product from "@/app/ui/products/product";
+import { fetchProductList } from '@/app/lib/data';
 
 export default async function ProductPage({
   params,
@@ -6,9 +7,16 @@ export default async function ProductPage({
   params: { productId: string };
 }) {
   const productId = parseInt(params.productId, 10);
+  const data = await fetchProductList();
+  const product = data.find((p) => p.id === productId);
+
+  if (!product) {
+      return <div className="p-6 text-red-600">Product not found.</div>;
+  }
+
   return (
     <div>
-      <Product productId={productId} />
+      <Product product={product} />
     </div>
 
   )

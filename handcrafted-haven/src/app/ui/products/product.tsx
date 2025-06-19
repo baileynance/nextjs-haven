@@ -1,12 +1,21 @@
-import { fetchProductList } from "@/app/lib/data";
+"use client";
 
-export default async function Product({ productId }: { productId: number }) {
-    const data = await fetchProductList();
-    const product = data.find((p) => p.id === productId);
+import { useState } from 'react';
+import ReviewDialog from '@/app/ui/products/review-dialog';
 
-    if (!product) {
-        return <div className="p-6 text-red-600">Product not found.</div>;
-    }
+type ProductProps = {
+    product: {
+      id: number;
+      name: string;
+      image: string;
+      price: number;
+      description: string;
+    };
+  };
+
+export default function Product({ product }: ProductProps) {
+
+    const [open, setOpen] = useState(false);
 
     return (
         <div className="min-h-screen bg-gray-50 p-6">
@@ -20,9 +29,12 @@ export default async function Product({ productId }: { productId: number }) {
                 <h1 className="text-3xl font-bold mb-2">{product.name}</h1>
                 <p className="text-xl text-gray-800 mb-4">{product.price}</p>
                 <p className="text-gray-700">{product.description}</p>
-                <button className="mt-6 bg-green-600 text-white py-2 px-4 rounded hover:bg-green-500">
+                <button className="mt-6 bg-green-600 text-white py-2 px-4 rounded hover:bg-green-500" 
+                    onClick={() => setOpen(true)}
+                >
                     Review
                 </button>
+                <ReviewDialog isOpen={open} onCloseAction={() => setOpen(false)} />
                 </div>
             </div>
         </div>

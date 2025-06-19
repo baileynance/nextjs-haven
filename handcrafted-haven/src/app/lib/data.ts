@@ -1,7 +1,8 @@
 import postgres from 'postgres';
 import {
     ProductTableType,
-    ReviewTableType
+    ReviewTableType,
+    UserTableType
 } from "@/app/lib/definitions";
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
@@ -30,4 +31,17 @@ export async function fetchReviews() {
       console.error('Database Error:', error);
       throw new Error('Failed to fetch review');
     }
+}
+
+export async function getUserInfo() {
+  try {
+    const data = await sql<UserTableType[]>`
+      SELECT users.id, users.first_name, users.last_name, users.email, users.password
+      FROM users`;
+
+    return data;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch review');
+  }
 }
