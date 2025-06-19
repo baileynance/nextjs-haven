@@ -6,14 +6,15 @@ export const authOptions: AuthOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "email" },
+        email: { label: "Email", type: "text" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const { email, password } = credentials ?? {};
-        // Your auth logic here
-        if (email === "admin@example.com" && password === "password") {
-          return { id: "1", name: "Admin", email };
+        if (
+          credentials?.email === "admin@example.com" &&
+          credentials?.password === "password"
+        ) {
+          return { id: "1", name: "Admin", email: "admin@example.com" };
         }
         return null;
       },
@@ -27,8 +28,6 @@ export const authOptions: AuthOptions = {
   },
 };
 
-// Create the NextAuth handler using the options
 const handler = NextAuth(authOptions);
 
-// Export handler only for GET and POST routes
 export { handler as GET, handler as POST };
