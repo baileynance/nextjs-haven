@@ -1,10 +1,9 @@
-import TrendingProducts from "@/app/ui/trending-products";
-import PopularProducts from "@/app/ui/popular-products";
+import Image from 'next/image';
 
 export default function Home() {
     return (
         <div>
-            <img src="/hero-image.avif" alt="Hero" className="w-full h-auto" />
+            <Image src="/hero-image.avif" alt="Hero" className="w-full h-auto" />
         </div>
     )
 }

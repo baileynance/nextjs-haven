@@ -1,11 +1,9 @@
+import Image from 'next/image'
+
 export default function Dashboard() {
     return (
         <div>
-            <img
-                src="/handcrafted-haven.svg"
-                alt="Home"
-                className="h-12 slate-100"
-            />
+            <Image src="/hero-image.avif" alt="Hero" className="w-full h-auto" />
         </div>
     )
 }

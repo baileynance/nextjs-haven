@@ -1,5 +1,6 @@
 import { fetchProductList } from "@/app/lib/data";
 import Link from "next/link";
+import Image from "next/image";
 
 export default async function ProductList() {
     const data = await fetchProductList();
@@ -12,7 +13,7 @@ export default async function ProductList() {
                 key={product.id}
                 className="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden"
               >
-                <img
+                <Image
                   src={product.image}
                   alt={product.name}
                   className="w-full h-48 object-cover"
