@@ -1,5 +1,16 @@
-export default async function ProductPage({ params }: { params: Promise<{ productId: string }> }) {
-  const { productId } = await params;
-  return <div>Product ID: {productId}</div>;
+import Product from "@/app/ui/products/product";
+
+export default async function ProductPage({
+  params,
+}: {
+  params: { productId: string };
+}) {
+  const productId = parseInt(params.productId, 10);
+  return (
+    <div>
+      <Product productId={productId} />
+    </div>
+
+  )
 }
   

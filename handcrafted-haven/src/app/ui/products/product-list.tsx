@@ -20,7 +20,7 @@ export default async function ProductList() {
                 <div className="p-4">
                   <h2 className="text-lg font-semibold">{product.name}</h2>
                   <p className="text-gray-600">{product.price}</p>
-                  <Link href="/products/[id]" as={`/products/${product.id}`}>
+                  <Link href="products/[id]" as={`/dashboard/products/${product.id}`}>
                     <button className="mt-4 w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-500 transition">
                         View Details
                     </button>
