@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import { useState } from 'react';
 import ReviewDialog from '@/app/ui/products/review-dialog';
 
@@ -20,9 +21,11 @@ export default function Product({ product }: ProductProps) {
     return (
         <div className="min-h-screen bg-gray-50 p-6">
             <div className="max-w-4xl mx-auto bg-white p-6 rounded shadow flex flex-col md:flex-row gap-6">
-                <img
+                <Image
                 src={product.image}
                 alt={product.name}
+                width={400}
+                height={600}
                 className="w-full md:w-1/2 h-auto object-cover rounded"
                 />
                 <div>

@@ -1,5 +1,6 @@
 import NavLinks from "@/app/ui/nav-links";
 import AuthLinks from "@/app/ui/auth-route";
+import Image from "next/image";
 
 export default function RootLayout({
     children,
@@ -12,9 +13,11 @@ export default function RootLayout({
               <div className="mx-auto flex bg-neutral-100 h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
                 <a className="block text-teal-600 dark:text-teal-300" href="#">
                   <span className="sr-only">Home</span>
-                  <img
+                  <Image
                     src="/handcrafted-haven.svg"
                     alt="Home"
+                    width={100}
+                    height={100}
                     className="h-12 slate-100"
                   />
                 </a>

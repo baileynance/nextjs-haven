@@ -16,6 +16,8 @@ export default async function ProductList() {
                 <Image
                   src={product.image}
                   alt={product.name}
+                  width={400}
+                  height={600}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-4">

@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/app/api/auth/route";
 
 export default async function AccountScreen() {
     const session = await getServerSession(authOptions);
