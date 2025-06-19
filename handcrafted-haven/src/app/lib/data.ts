@@ -33,6 +33,25 @@ export async function fetchReviews() {
     }
 }
 
+export async function postReview(
+  rating: number,
+  reviewText: string
+) {
+  try {
+    const data = await sql<ReviewTableType[]>`
+      INSERT INTO reviews (product_id, rating, review)
+      VALUES (DEFAULT, ${rating}, ${reviewText})
+      RETURNING *;
+    `;
+
+    return data[0];
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to post review');
+  }
+}
+
+
 export async function getUserInfo() {
   try {
     const data = await sql<UserTableType[]>`
