@@ -1,5 +1,5 @@
+import { fetchProductList } from "@/app/lib/data";
 import Product from "@/app/ui/products/product";
-import { fetchProductList } from '@/app/lib/data';
 
 export default async function ProductPage({ params }: { params: { productId: string } }) {
   const productId = parseInt(params.productId, 10);
